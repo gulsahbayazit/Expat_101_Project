@@ -7,7 +7,12 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
-  },
-  "devDependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mongoose": "^6.9.1",
+    "morgan": "^1.10.0",
+    "serve-favicon": "^2.5.0"
   }
 }
