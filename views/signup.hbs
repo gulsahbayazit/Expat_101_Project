@@ -1,0 +1,38 @@
+<div class="container">
+
+  <div class="section">
+
+    <div>
+      <h2>Create an account</h2>
+      <span>You can access our portal and engage with our community by creating an account with Expat101.</span>
+    </div>
+
+    <form action="/signup" method="POST" >
+      <p>Please complete all required fields.</p>
+      <br>
+        <div>
+            <label for="firstName">Name</label>
+            <input type="text" name="firsName" required>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName"  required>
+
+            <label for="country">Country </label>
+            <input type="text" name="country">
+            
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="example@expat101.com" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+                <div>
+                Your password must be between 8 and 20 characters long, contain at least a uppercase, a lowercase, a number, and a special character (such as!, @, #, $,%,, &, or *). It cannot contain any spaces or emoji.
+                </div>
+
+            {{!-- user could upload image --}}
+        
+            <button type="submit">Sign me up!</button>
+        </div>
+    </form>
+  </div>
+</div>

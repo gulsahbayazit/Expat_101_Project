@@ -12,8 +12,11 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-
 const app = express();
+
+
+// Register partials to use them with handlebars
+hbs.registerPartials(__dirname + "/views/partials")
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
