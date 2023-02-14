@@ -1,8 +1,8 @@
 
-font-family: "Merriweather", serif;
-font-family: "Montserrat", sans-serif;
-
 body {
+  
+  font-family: "Merriweather", serif;
+  font-family: "Montserrat", sans-serif;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
