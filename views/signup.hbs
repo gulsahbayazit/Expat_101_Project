@@ -1,57 +1,54 @@
 
 {{> navpartial}} 
-<div class="container-signup">
-
-  <div class="section-sign-up">
-
-    <div>
-      <h2>Create an account</h2>
-      <span>You can access our portal and engage with our community by creating an account with Expat101.</span>
+<div class="container-signup container text-left">
+    <div class="text-center">
+        <h1 class="fw-bold ">Create your account</h1>
+          <div>
+            <span class="subtitle fst-italic:"> Already have an account?</span>
+            <a class="link-warning" href="/login">Log in</a>
+          </div>       
     </div>
-
-    <form class="row g-3" action="/signup" method="POST" >
-      <p> <em> Please complete all required fields.</em></p>
-      <br>
-
-        <div class="">
-            <div class="col-md-6">
-                <label for="userName">Username</label>
-                <input type="text" name="userName" required>
-            </div>
-            <div class="col-md-6">
-                 <label for="firstName">Name</label>
-                 <input type="text" name="firstName" required>
-            </div>
+    
+    <form class="row g-3 " action="/signup" method="POST" >
+      {{!-- <p class="fw-bold text-center"> <em> Please complete all required fields.</em></p> --}}
             <div class="col-12" >
-                <label for="lastName">Last Name</label>
-                <input type="text" name="lastName"  required>
-            </div>
-            <div class="col-12">
-                <label for="country">Country </label>
-                <input type="text" name="country">
-            </div>
-            <div class="col-12">
-                <label for="occupation">Occupation </label>
-                <input type="text" name="occupation">
+                <label for="userName" class="form-label">Username</label>
+                <input type="text" class="form-control" name="userName" required>
             </div>
             <div class="col-md-6">
-                <label for="email">Email</label>
-                <input type="email" name="email" placeholder="example@expat101.com" required>
+                 <label for="firstName" class="form-label">Name</label>
+                 <input type="text" class="form-control" name="firstName" required>
             </div>
-            <div class="col-md-4">
-                <label for="password">Password</label>
-                <input type="password" name="password" required>
+            <div class="col-md-6" >
+                <label for="lastName" class="form-label">Surname</label>
+                <input type="text" class="form-control" name="lastName"  required>
+            </div>
+            <div class="col-md-6">
+                <label for="country" class="form-label">Country </label>
+                <input type="text"  class="form-control" name="country">
+            </div>
+            <div class="col-md-6">
+                <label for="occupation" class="form-label">Occupation </label>
+                <input type="text" class="form-control" name="occupation">
+            </div>
+            <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email"  class="form-control" name="email" placeholder="example@expat101.com" required>
+            </div>
+            <div class="col-12">
+                <label for="password" class="form-label">Password</label>
+                <input type="password"  class="form-control" name="password" required>
                     <div>
-                        <p> Password needs to have at least one Uppercase letter, one number and be 6 characters long at least.</p>
+                        <p> Your password must contain at least 8 characters,  one Uppercase letter and 1 digit</p>
+
+                        
                     </div>
             </div>
-            <div class="col-12">
-                 <button type="submit">Sign up!</button>
+            <div  class="col-12 d-grid gap-2">
+                 <button class="btn btn-primary" type="submit">Sign up!</button>
             </div>
             {{!-- user could upload image --}}
-
-        </div>
     </form>
-  </div>
 </div>
+
 {{> footerpartial}} 

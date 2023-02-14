@@ -3,18 +3,26 @@ font-family: "Merriweather", serif;
 font-family: "Montserrat", sans-serif;
 
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.container-sign-up{
-  background-color: antiquewhite;
-  /* width: 100vw; */
-  height: 50vh;
+
+@media(min-width:800px){
+  .container-signup {
+    display: block;
+    width: 30%;
+  }
+  .container-login {
+    display: block;
+    width: 30%;
+  }
 }
 
-.section-sign-up{
-  /* display: flex; */
-  justify-content: center;
-  text-align: center;
+.fl-button-primary {
+  background-color: #00e3aa;
+  border-color: #00e3aa;
+  border-style: solid;
+  padding: 8px 32px;
 }
+  
