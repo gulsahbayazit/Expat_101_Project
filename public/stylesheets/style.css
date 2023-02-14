@@ -1,19 +1,17 @@
-
-font-family: "Merriweather", serif;
-font-family: "Montserrat", sans-serif;
-
 body {
+  font-family: "Merriweather", serif;
+  font-family: "Montserrat", sans-serif;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.container-sign-up{
+.container-sign-up {
   background-color: antiquewhite;
   /* width: 100vw; */
   height: 50vh;
 }
 
-.section-sign-up{
+.section-sign-up {
   /* display: flex; */
   justify-content: center;
   text-align: center;
