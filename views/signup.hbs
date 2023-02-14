@@ -1,4 +1,6 @@
-<div class="container-sign-up">
+
+{{> navpartial}} 
+<div class="container-signup">
 
   <div class="section-sign-up">
 
@@ -10,6 +12,7 @@
     <form class="row g-3" action="/signup" method="POST" >
       <p> <em> Please complete all required fields.</em></p>
       <br>
+
         <div class="">
             <div class="col-md-6">
                 <label for="userName">Username</label>
@@ -46,7 +49,9 @@
                  <button type="submit">Sign up!</button>
             </div>
             {{!-- user could upload image --}}
+
         </div>
     </form>
   </div>
 </div>
+{{> footerpartial}} 
