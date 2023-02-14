@@ -5,12 +5,10 @@
 
     <form action="/login" method="POST">
       <div>
-        <label for="email" class="form-label">Email address: </label>
+        <label for="userName" class="form-label">Username: </label>
         <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
+          type="text"
+          name="userName"
           class="form-control"
         />
       </div>
@@ -20,15 +18,13 @@
         <input
           type="password"
           name="password"
-          id="password"
-          placeholder="Password"
           class="form-control"
         />
       </div>
 
       <div>
-        <button type="submit">Log in: </button>
-        <a href="/signup">Create an account: </a>
+        <button type="submit">Log in</button>
+        <a href="/signup">Create an account</a>
         {{! <a href="/change-password">Change password</a> }}
       </div>
     </form>

@@ -1,3 +1,4 @@
+
 font-family: "Merriweather", serif;
 font-family: "Montserrat", sans-serif;
 
@@ -6,10 +7,14 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+.container-sign-up{
+  background-color: antiquewhite;
+  /* width: 100vw; */
+  height: 50vh;
 }
 
-h1 {
-  color: 15px;
+.section-sign-up{
+  /* display: flex; */
+  justify-content: center;
+  text-align: center;
 }

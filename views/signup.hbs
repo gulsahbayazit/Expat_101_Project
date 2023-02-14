@@ -1,36 +1,55 @@
+
 {{> navpartial}} 
 <div class="container-signup">
 
-  <div class="section">
+  <div class="section-sign-up">
 
     <div>
       <h2>Create an account</h2>
       <span>You can access our portal and engage with our community by creating an account with Expat101.</span>
     </div>
 
-    <form action="/signup" method="POST" >
-      <p>Please complete all required fields.</p>
+    <form class="row g-3" action="/signup" method="POST" >
+      <p> <em> Please complete all required fields.</em></p>
       <br>
-        <div>
-            <label for="firstName">Name</label>
-            <input type="text" name="firsName" required>
 
-            <label for="lastName">Last Name</label>
-            <input type="text" name="lastName"  required>
+        <div class="">
+            <div class="col-md-6">
+                <label for="userName">Username</label>
+                <input type="text" name="userName" required>
+            </div>
+            <div class="col-md-6">
+                 <label for="firstName">Name</label>
+                 <input type="text" name="firstName" required>
+            </div>
+            <div class="col-12" >
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName"  required>
+            </div>
+            <div class="col-12">
+                <label for="country">Country </label>
+                <input type="text" name="country">
+            </div>
+            <div class="col-12">
+                <label for="occupation">Occupation </label>
+                <input type="text" name="occupation">
+            </div>
+            <div class="col-md-6">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="example@expat101.com" required>
+            </div>
+            <div class="col-md-4">
+                <label for="password">Password</label>
+                <input type="password" name="password" required>
+                    <div>
+                        <p> Password needs to have at least one Uppercase letter, one number and be 6 characters long at least.</p>
+                    </div>
+            </div>
+            <div class="col-12">
+                 <button type="submit">Sign up!</button>
+            </div>
+            {{!-- user could upload image --}}
 
-            <label for="country">Country </label>
-            <input type="text" name="country">
-            
-            <label for="email">Email</label>
-            <input type="email" name="email" placeholder="example@expat101.com" required>
-
-            <label for="password">Password</label>
-            <input type="password" name="password" required>
-                <div>
-                Your password must be between 8 and 20 characters long, contain at least a uppercase, a lowercase, a number, and a special character (such as!, @, #, $,%,, &, or *). It cannot contain any spaces or emoji.
-                </div>
-
-            <button type="submit">Sign me up!</button>
         </div>
     </form>
   </div>
