@@ -4,53 +4,12 @@ const router = express.Router();
 const Recommendation = require("../models/Recommendation");
 
 const User = require("../models/User");
-const bcrypt = require("bcryptjs");
 
 /* GET home page */
-
 router.get("/signup", (req, res, next) => {
   res.render("signup");
 });
 
-/* GET login */
-router.get("/login", (req, res, next) => {
-  res.render("login");
-});
-
-/* POST login */
-router.post("/login", (req, res, next) => {
-  const { userName, password } = req.body;
-
-  if (!userName.length || !password.length) {
-    res.render("login", {
-      message: "Hey hey! Seems like you forgot to fill out all the fields!",
-    });
-    return;
-  }
-
-  User.findOne({ username: userName })
-    .then((result) => {
-      if (result) {
-        let isMatching = bcrypt.compareSync(password, result.password);
-        if (isMatching) {
-          req.session.loggedInUser = result;
-          res.redirect("/myaccount");
-        } else {
-          res.render("login", {
-            message: "Hey hey! Seems like your forgot your password.",
-          });
-        }
-      } else {
-        res.render("login", {
-          message:
-            "Hey hey! Seems like we do not know this username, try again with a different username or sign up for free!",
-        });
-      }
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
 /* GET myAccount */
 
 router.post("/signup", (req, res, next) => {
@@ -127,13 +86,7 @@ router.get("/login", (req, res, next) => {
 });
 router.post("/login", (req, res, next) => {
   const { userName, password } = req.body;
-
-  if (!userName.length || !password.length) {
-    res.render("login", {
-      message: "Hey hey! Seems like you forgot to fill out all the fields!",
-    });
-    return;
-  }
+  console.log("asdjkbqwdjhbqwdjnqwjkdn");
 
   User.findOne({ userName: userName })
     .then((result) => {
@@ -149,8 +102,7 @@ router.post("/login", (req, res, next) => {
         }
       } else {
         res.render("login", {
-          message:
-            "Hey hey! Seems like we do not know this username, try again with a different username or sign up for free!",
+          message: "Hey hey! Seems like your forgot your password.",
         });
       }
     })

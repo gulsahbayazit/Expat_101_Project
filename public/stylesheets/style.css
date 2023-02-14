@@ -2,7 +2,7 @@
 font-family: "Montserrat", sans-serif; */
 
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -47,3 +47,21 @@ p {
 /* My Account */
 /* About */
 /* Footer */
+
+@media (min-width: 800px) {
+  .container-signup {
+    display: block;
+    width: 30%;
+  }
+  .container-login {
+    display: block;
+    width: 30%;
+  }
+}
+
+.fl-button-primary {
+  background-color: #00e3aa;
+  border-color: #00e3aa;
+  border-style: solid;
+  padding: 8px 32px;
+}
