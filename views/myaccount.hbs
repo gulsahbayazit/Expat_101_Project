@@ -1,18 +1,20 @@
 {{> navpartial}} 
-<div class="conatiner-account">
-  <img src="" alt="" />
-  <p>{{this.userName}}</p>
-  <p>{{this.occupation}}</p>
+
+<div class="text-center">
+   <div>
+    <img class="profil-img rounded-circle shadow-4-strong" src="/images/human-profile-iconn.png">
+    <h5>{{this.userName}}</h5>
+    <p>{{this.occupation}}</p>
+  </div>
+    <div>
+        <a href="/create"> 
+          <button class="btn btn-light btn-width-1-1 "> Add tricks and tips </button>
+        </a>
+    </div>
 </div>
-<button>Add tricks and tips</button>
-<section class="added">
-  <h2>Added</h2>
-</section>
 
 {{!-- user could upload image --}}
         
-<section class="saved">
-  <h2>Saved</h2>
-</section>
+
 
 {{> footerpartial}} 
