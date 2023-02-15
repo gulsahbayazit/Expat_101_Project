@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-
+const bcrypt = require('bcryptjs')
 const Recommendation = require("../models/Recommendation");
 const User = require("../models/User");
+const { uploader, cloudinary } = require("../config/cloudinary")
+
 
 /* GET home page */
 router.get("/signup", (req, res, next) => {
@@ -36,9 +38,9 @@ router.post("/signup", (req, res, next) => {
     res.render("signup.hbs", { message: "Username cannot be empty" });
     return;
   }
-  if (password.length < 6) {
+  if (password.length < 8) {
     res.render("signup.hbs", {
-      message: "Password has to be minimum 6 characters",
+      message: "Password has to be minimum 8 characters",
     });
     return;
   }
@@ -48,7 +50,7 @@ router.post("/signup", (req, res, next) => {
     if (userFromDB !== null) {
       res.render("signup.hbs", { message: "Username is already taken" });
     } else {
-      let regexPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+      let regexPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
       if (!regexPass.test(password)) {
         res.render("signup.hbs", {
           message:
@@ -92,7 +94,7 @@ router.post("/login", (req, res, next) => {
       if (result) {
         let isMatching = bcrypt.compareSync(password, result.password);
         if (isMatching) {
-          req.session.loggedInUser = result;
+          req.session.user = result;
           res.redirect("/myaccount");
         } else {
           res.render("login", {
@@ -218,6 +220,11 @@ router.post("/login", (req, res, next) => {
 });
 
 router.get("/myaccount", (req, res, next) => {
+
+
+
+
+
   res.render("myaccount");
 });
 
@@ -225,31 +232,39 @@ router.get("/myaccount", (req, res, next) => {
 router.get("/create", (req, res, next) => {
   res.render("create");
 });
+router.post("/recommendation/create", uploader.single("image"), (req, res, next) => {
+    console.log(req.file)
+    let imgPath
+    const { title, description, tags, category, link} = req.body
+    if(req.file.path===undefined){
+      imgpath = 'https://www.nccer.org/images/default-source/icons/default-event-thumb.jpg?sfvrsn=2ceb314f_2'
+    }else{
+     imgPath = req.file.path
+    }
+    console.log(req.body)
 
-// POST my Account
-router.post("/recommendation/create", (req, res, next) => {
-  console.log(req.body);
-  const { link, title, description, tags, comment, rate } = req.body;
-
-  Recommendation.create({ link, title, description, tags, comment, rate })
-    .then((createdRecommendation) => {
-      console.log(createdRecommendation);
-      // Redirect to celebrity details route
-      res.redirect(`/myaccount`);
-    })
-    .catch((err) => next(err));
-});
-
-// Delete Recommendation
-router.post("/recommendation/:id/delete", (req, res, next) => {
-  Recommendation.findByIdAndRemove(req.params.id)
-    .then(() => {
-      res.redirect("/myaccount");
-    })
-    .catch((err) => next(err));
-});
-// router.get("/myaccount/add", (req, res, next) => {
-//   res.render("myaccount/add");
-// });
-
-module.exports = router;
+  
+    Recommendation.create({ title, link , tags, category, description, imgPath, user: req.session.user._id})
+      .then(createdRecommendation => {
+        console.log(createdRecommendation)
+        res.redirect("/myaccount")
+      })
+      .catch(err => {
+        next(err)
+      })
+  })
+  // router.get("/recommendation/delete/:id", (req, res, next) => {
+  //   Recommendation.findByIdAndDelete(req.params.id)
+  //     .then(deletedrecommendation => {
+  //       if (deletedrecommendation.imgPath) {
+  //         // delete the image on cloudinary
+  //         cloudinary.uploader.destroy(deletedrecommendation.publicId)
+  //       }
+  //       res.redirect("/")
+  //     })
+  //     .catch(err => {
+  //       next(err)
+  //     })
+  // })
+  
+  module.exports = router
