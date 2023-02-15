@@ -1,13 +1,15 @@
 
 {{> navpartial}} 
+<br>
 <div class="container-signup container text-left">
     <div class="text-center">
-        <h1 class="fw-bold ">Create your account</h1>
+        <h2 class="fw-bold ">Create your account</h2>
           <div>
             <span class="subtitle fst-italic:"> Already have an account?</span>
             <a class="link-warning" href="/login">Log in</a>
           </div>       
     </div>
+    <br>
     
     <form class="row g-3 " action="/signup" method="POST" >
       {{!-- <p class="fw-bold text-center"> <em> Please complete all required fields.</em></p> --}}
@@ -45,7 +47,7 @@
                     </div>
             </div>
             <div  class="col-12 d-grid gap-2">
-                 <button class="btn btn-primary" type="submit">Sign up!</button>
+                 <button class="btn btn-light btn-width-1-1" type="submit">Sign up!</button>
             </div>
             {{!-- user could upload image --}}
     </form>

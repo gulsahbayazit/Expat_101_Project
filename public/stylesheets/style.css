@@ -1,4 +1,5 @@
-/* font-family: "Merriweather", serif;
+/* 
+font-family: "Merriweather", serif;
 font-family: "Montserrat", sans-serif; */
 
 body {
@@ -16,11 +17,6 @@ body {
   border-radius: 4rem;
 }
 
-.container {
-  padding-bottom: 5rem;
-}
-
-h1,
 h2 {
   font-family: "Merriweather", serif;
   font-weight: 600;
@@ -90,14 +86,50 @@ p {
   }
 }
 
-.fl-button-primary {
-  background-color: #00e3aa;
-  border-color: #00e3aa;
-  border-style: solid;
-  padding: 8px 32px;
+.blue-btn {
+  background-color: #5df0f0;
+}
+
+.blue-btn:hover {
+  background-color: #82efef;
+  border-color: #82efef;
 }
 
 /* Footer */
 .bg-footer {
   background-color: rgb(187, 249, 249);
+}
+.btn-light {
+  background-color: #00e3aa;
+  border-color: #00e3aa;
+}
+
+.btn-light:hover {
+  background-color: #77f3d4;
+  border-color: #77f3d4;
+}
+
+.profil-img {
+  width: 10%;
+}
+
+.imagePreview {
+  width: 30vw;
+  height: 80vh;
+  /* background-position: center center; */
+  background: url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+  background-color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-block;
+  box-shadow: 0px -3px 6px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* .image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+.list-unstyled {
+  width: 10vw;
 }

@@ -1,0 +1,71 @@
+
+{{> navpartial}} 
+<br>
+<div class="container w-70">
+    <div class="row ">
+        <div class="col image-container d-flex flex-column justify-content-center align-items-end">
+                {{!-- <div class="col-sm-2 imgUp"> --}}
+             <div class="d-flex flex-column align-items-start">
+                 <div class="imagePreview"></div><br>
+                {{!-- <label class="btn blue-btn " >
+                Upload <input type="file" class="uploadFile img" value="Upload Photo" style="width:0px; height: 0px; ">
+                                </label> --}}
+             </div>
+               
+                {{!-- </div><!-- col-2 --> --}}
+        </div>
+                <div class="col text-right">
+                    <div>
+                        <div class="text-center">
+                            <h3 class="fw-bold ">Create Tricks and Tips</h3>
+                        </div>
+                            <br>
+            {{!-- <p class="fw-bold text-center"> <em> Please complete all required fields.</em></p> --}}
+                    <form class="row g-3 " action="/recommendation/create" method="POST" enctype="multipart/form-data">
+                        <div class="col-12" >
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" name="title" value="title" required>
+                        </div>
+                        <div class="col-12" >
+                            <label for="link" class="form-label">Link</label>
+                            <input type="text" class="form-control" name="link" value="link" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="tags" class="form-label">Tags </label>
+                            <input type="text"  class="form-control" name="tags" value="tags">
+                        </div>
+                        <div class="col-12" >
+                            <label for="image" class="form-label">Upload image</label>
+                            <input type="file" class="form-control" name="image" value="image" required>
+                        </div>
+                        <div>
+                            <label for="category" class="form-label">Category </label>
+                            <br>
+                            <input type="radio" name="category" value="accomodation">
+                            <label for="accomodation">Accomodation</label>
+
+                            <input type="radio"  name="category" value="courses">
+                            <label for="courses">Courses</label>
+
+                            <input type="radio"  name="category" value="events">
+                            <label for="events">Events</label>
+                        </div>
+                        <div class="col-12" >
+                            <label for="description" class="form-label">Description</label>
+                            <textarea type="textarea" class="form-control" name="description" required></textarea>
+                        </div>
+                    
+                        <div  class="col-12 d-grid gap-2">
+                            <button class="btn btn-light btn-width-1-1" type="submit">Create</button>
+                        </div>
+                        {{!-- user could upload image --}}
+                    </form>
+
+            
+                    </div>    
+                </div>
+               
+    </div>
+</div>    
+  
+{{> footerpartial}} 

@@ -22,8 +22,16 @@ const recommendationSchema = new Schema(
     category: {
       type: String,
     },
+    imgPath: {
+      type: String,
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
     // comment: {
     //   type: String,
+    //   required: true,
     // },
     // rate: {
     //   type: Number,
