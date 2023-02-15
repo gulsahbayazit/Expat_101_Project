@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require('bcryptjs')
+const bcrypt = require("bcryptjs");
 const Recommendation = require("../models/Recommendation");
 const User = require("../models/User");
-const { uploader, cloudinary } = require("../config/cloudinary")
-
+const { uploader, cloudinary } = require("../config/cloudinary");
 
 /* GET home page */
 router.get("/signup", (req, res, next) => {
@@ -220,11 +219,6 @@ router.post("/login", (req, res, next) => {
 });
 
 router.get("/myaccount", (req, res, next) => {
-
-
-
-
-
   res.render("myaccount");
 });
 
@@ -232,39 +226,51 @@ router.get("/myaccount", (req, res, next) => {
 router.get("/create", (req, res, next) => {
   res.render("create");
 });
-router.post("/recommendation/create", uploader.single("image"), (req, res, next) => {
-    console.log(req.file)
-    let imgPath
-    const { title, description, tags, category, link} = req.body
-    if(req.file.path===undefined){
-      imgpath = 'https://www.nccer.org/images/default-source/icons/default-event-thumb.jpg?sfvrsn=2ceb314f_2'
-    }else{
-     imgPath = req.file.path
+router.post(
+  "/recommendation/create",
+  uploader.single("image"),
+  (req, res, next) => {
+    console.log(req.file);
+    let imgPath;
+    const { title, description, tags, category, link } = req.body;
+    if (req.file.path === undefined) {
+      imgpath =
+        "https://www.nccer.org/images/default-source/icons/default-event-thumb.jpg?sfvrsn=2ceb314f_2";
+    } else {
+      imgPath = req.file.path;
     }
-    console.log(req.body)
+    console.log(req.body);
 
-  
-    Recommendation.create({ title, link , tags, category, description, imgPath, user: req.session.user._id})
-      .then(createdRecommendation => {
-        console.log(createdRecommendation)
-        res.redirect("/myaccount")
+    Recommendation.create({
+      title,
+      link,
+      tags,
+      category,
+      description,
+      imgPath,
+      user: req.session.user._id,
+    })
+      .then((createdRecommendation) => {
+        console.log(createdRecommendation);
+        res.redirect("/myaccount");
       })
-      .catch(err => {
-        next(err)
-      })
-  })
-  // router.get("/recommendation/delete/:id", (req, res, next) => {
-  //   Recommendation.findByIdAndDelete(req.params.id)
-  //     .then(deletedrecommendation => {
-  //       if (deletedrecommendation.imgPath) {
-  //         // delete the image on cloudinary
-  //         cloudinary.uploader.destroy(deletedrecommendation.publicId)
-  //       }
-  //       res.redirect("/")
-  //     })
-  //     .catch(err => {
-  //       next(err)
-  //     })
-  // })
-  
-  module.exports = router
+      .catch((err) => {
+        next(err);
+      });
+  }
+);
+// router.get("/recommendation/delete/:id", (req, res, next) => {
+//   Recommendation.findByIdAndDelete(req.params.id)
+//     .then(deletedrecommendation => {
+//       if (deletedrecommendation.imgPath) {
+//         // delete the image on cloudinary
+//         cloudinary.uploader.destroy(deletedrecommendation.publicId)
+//       }
+//       res.redirect("/")
+//     })
+//     .catch(err => {
+//       next(err)
+//     })
+// })
+
+module.exports = router;

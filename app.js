@@ -26,8 +26,8 @@ const projectName = "Expat_101";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
-const session = require("express-session")
-const MongoStore = require("connect-mongo")
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 app.use(
   session({
@@ -36,10 +36,10 @@ app.use(
     resave: true,
     saveUninitialized: true,
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI
-    })
+      mongoUrl: process.env.MONGODB_URI,
+    }),
   })
-)
+);
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
