@@ -1,13 +1,14 @@
 {{> navpartial}} 
-<div class="conatiner-account">
-  <img src="" alt="" />
-  <p>{{this.userName}}</p>
-  <p>{{this.occupation}}</p>
-</div>
-<button>Add tricks and tips</button>
-<section class="added">
-  <h2>Added</h2>
+
 </section>
+<div class="container">
+  <div class="row">
+{{#each accomodations}}
+{{> cardspartial this}}
+{{/each}}
+</div>
+</div>
+<br>
 
 {{!-- user could upload image --}}
         

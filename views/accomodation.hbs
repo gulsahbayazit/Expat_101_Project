@@ -1,20 +1,29 @@
 {{> navpartial}} 
-<div class="container-recommendation">
-  <h1>Find Accomodations Website</h1>
-  <img src="" alt="" srcset="" class="header-img" />
-  <p>Welcome to the expat community! Moving to a new country can be a
-    challenging experience, but it can also be a time of growth and exploration.
-    One of the biggest challenges you'll face as an expat is finding a suitable
-    place to live, but you don't have to go it alone. Here at websites, we're
-    dedicated to helping expats find the support and resources they need to
-    thrive in their new home.</p>
+<div class="bg">
+<div class="container text-center py-5">
+<div class="col">
+<h1>How to find an accomodation in Berlin?</h1>
+  <br>
+<div>
+<img src="/images/accomodation.jpg" class="tips-img" alt="header-img"></div>
+</div> <br>
+<p>If you're planning on staying in Berlin for an extended period of time, finding the right long-term accommodation is crucial. Here are some tips to help you find the perfect long-term accommodation in this cool city.
+</p>
+<br>
 </div>
-<div class="section-recommendataion">
-  <div class="card" style="width: 18rem;">
-    <img src="" alt="" class="card-img-top" />
-    <div class="card-body">
-      <h5 class="card-title">Title: </h5>
-      <p class="card-text">Description: </p>
+</div>
+
+<div class="container">
+  <div class="row">
+{{#each accomodations}}
+{{> cardspartial this}}
+{{/each}}
+</div>
+</div>
+<br>
+
+{{!-- Comment out later  --}}
+
       {{!  Rating
 <div class="rating">
   <input type="radio" id="star5" name="rating" value="5" />
@@ -29,9 +38,9 @@
     <label for="star1">1 stars</label>
 
    }}
-      <p class="card-text">Comments: </p>
-      <a href="#" class="btn btn-primary">Learn More</a>
-    </div>
-  </div>
-</div>
+  
+    
+
 {{> footerpartial}} 
+
+

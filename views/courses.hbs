@@ -1,38 +1,23 @@
-
 {{> navpartial}} 
-<div class="container-recommendtaion">
-  <h1>Courses</h1>
-  <img src="" alt="" srcset="" class="header-img" />
-  <p>Welcome to the expat community! Moving to a new country can be a
-    challenging experience, but it can also be a time of growth and exploration.
-    One of the biggest challenges you'll face as an expat is finding a suitable
-    place to live, but you don't have to go it alone. Here at websites, we're
-    dedicated to helping expats find the support and resources they need to
-    thrive in their new home.</p>
+<div class="bg">
+<div class="container text-center py-5">
+<div class="col">
+<h1>How to find German courses in Berlin?</h1>
+  <br>
+<div>
+<img src="/images/german.jpg" class="tips-img" alt="header-img"></div>
+</div> <br>
+<p>If you're looking to learn German in Berlin, you're in luck! There are many language schools, private tutors, and community centers that offer German courses for learners of all levels. Here are some beneficial tips, tricks and links.
+</p>
+<br>
 </div>
-<div class="section-recommendataion">
-  <div class="card" style="width: 18rem;">
-    <img src="" alt="" class="card-img-top" />
-    <div class="card-body">
-      <h5 class="card-title">Title: </h5>
-      <p class="card-text">Description: </p>
-      {{!  Rating
-<div class="rating">
-  <input type="radio" id="star5" name="rating" value="5" />
-  <label for="star5">5 stars</label>
-  <input type="radio" id="star4" name="rating" value="4" />
-  <label for="star4">4 stars</label>
-  <input type="radio" id="star3" name="rating" value="3" />
-    <label for="star3">3 stars</label>
-      <input type="radio" id="star2" name="rating" value="2" />
-    <label for="star1">1 stars</label>
-      <input type="radio" id="star1" name="rating" value="1" />
-    <label for="star1">1 stars</label>
-
-   }}
-      <p class="card-text">Comments: </p>
-      <a href="#" class="btn btn-primary">Learn More</a>
-    </div>
-  </div>
 </div>
+<div class="container">
+  <div class="row">
+{{#each courses}}
+{{> cardspartial this}}
+{{/each}}
+</div>
+</div>
+<br>
 {{> footerpartial}} 

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const bcrypt = require("bcryptjs");
 const Recommendation = require("../models/Recommendation");
 
 const User = require("../models/User");
@@ -230,9 +230,9 @@ router.get("/create", (req, res, next) => {
 // POST my Account
 router.post("/recommendation/create", (req, res, next) => {
   console.log(req.body);
-  const { link, title, description, tags, comment, rate } = req.body;
+  const { title, link, tags, category, description } = req.body;
 
-  Recommendation.create({ link, title, description, tags, comment, rate })
+  Recommendation.create({ title, link, tags, category, description })
     .then((createdRecommendation) => {
       console.log(createdRecommendation);
       // Redirect to celebrity details route

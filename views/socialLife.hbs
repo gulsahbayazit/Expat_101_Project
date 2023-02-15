@@ -1,0 +1,23 @@
+{{> navpartial}} 
+<div class="bg">
+<div class="container text-center py-5">
+<div class="col">
+<h1>How to find events in Berlin?</h1>
+  <br>
+<div>
+<img src="/images/socialLife.jpg" class="tips-img" alt="header-img"></div>
+</div> <br>
+<p>Berlin is a vibrant and bustling city with a thriving social scene. Whether you're new to the city or a long-time resident, there are always plenty of events and activities to keep you busy and help you make new friends. Here are some cool things for you.
+</p>
+<br>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+{{#each events}}
+{{> cardspartial this}}
+{{/each}}
+</div>
+</div>
+<br>
+{{> footerpartial}} 
