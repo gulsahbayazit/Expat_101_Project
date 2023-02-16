@@ -40,6 +40,11 @@ app.use(
     }),
   })
 );
+// Session for user name
+app.use(function (req, res, next) {
+  res.locals.session = req.session;
+  next();
+});
 
 // app.use(function (req, res, next) {
 //   res.locals.session = req.session.user?;

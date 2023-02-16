@@ -2,12 +2,13 @@
 
 
 
+
+
 <div class="text-center">
    <div>
-    <img class="profil-img rounded-circle shadow-4-strong" src="/images/human-profile-iconn.png">
-    <h5>{{user.userName}}</h5>
-    <p>{{user.occupation}}</p>
-
+    <img class="myaccount-img" src="/images/berlin.jpg">
+    <h5>{{session.user.userName}}</h5>
+    <p>{{session.user.occupation}}</p>
   </div>
     <div>
         <a href="/create"> 
@@ -16,23 +17,40 @@
     </div>
 </div>
 <br>
-
-
-{{!-- user could upload image --}}
-        
+<br>
+<br>
 <div class="container">
-  <div class="row">
+<div class="row">
+<h4>Accomodation</h4>
 {{#each accomodations}}
 {{> cardspartial this}}
 {{/each}}
+</div>
+</div>
+<br>
+
+<div class="container">
+<div class="row">
+<h4>Courses</h4>
 {{#each courses}}
 {{> cardspartial this}}
 {{/each}}
+</div>
+</div>
+<br>
+
+
+<div class="container">
+<div class="row">
+<h4>Events</h4>
 {{#each socialLife}}
 {{> cardspartial this}}
 {{/each}}
 </div>
 </div>
+<br>
+        
+
 <br>
 
 {{> footerpartial}} 

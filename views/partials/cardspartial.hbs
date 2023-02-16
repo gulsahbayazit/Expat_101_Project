@@ -1,21 +1,32 @@
-<div class="col-sm-4">
-  <div class="container gy-3">
-    <div class="card shadow" style="width: 18rem;">
-      <img class="card-img-top" src="{{imgPath}}" alt="Card image cap" />
-      <div class="card-body">
-        <h6 class="card-title">Title :{{title}} </h6>
-        <p class="card-text">Description :{{description}}</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <hr />
-        <li class="list-group-item">Tags: {{tags}}</li>
+<div class="col-md-4 d-flex flex-wrap gap-3 align-items-stretch">
+  <div class="card shadow p-3" style="width: 20rem;">
+    <img
+      class="card-img-top img-fluis"
+      src="{{imgPath}}"
+      alt="Card image cap"
+    />
 
-        <li class="list-group-item">Category: {{category}}</li>
-      </ul>
-      <div class="card-body">
-        <button type="submit" class="btn btn-light">
-          <a href="{{this.link}}">Learn More</a></button>
-      </div>
+    <div class="card-body">
+
+      <h6 class="card-title">{{title}} </h6>
+      <h7 class="card-link">{{link}}</h7>
+      <p class="card-text">{{description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">#{{tags}}</li>
+      <li class="list-group-item">Category: {{category}}</li>
+    </ul>
+
+    <div class="card-footer">
+
+      <button type="submit" class="btn btn-light">
+        <a href="{{this.link}}">View website</a></button>
+
+      {{#if delete}}
+        <button class="btn btn-secondary">
+          <a href="/created/{{_id}}/delete">Delete</a></button>
+      {{/if}}
+
     </div>
   </div>
 </div>

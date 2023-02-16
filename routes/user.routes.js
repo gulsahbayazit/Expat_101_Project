@@ -10,8 +10,6 @@ router.get("/signup", (req, res, next) => {
   res.render("signup");
 });
 
-/* GET myAccount */
-
 router.post("/signup", (req, res, next) => {
   const {
     userName,
@@ -53,7 +51,7 @@ router.post("/signup", (req, res, next) => {
       if (!regexPass.test(password)) {
         res.render("signup.hbs", {
           message:
-            "Password needs to have at least one Upppercase letter, one number and be 6 characters long at least",
+            "Password needs to have at least one Upppercase letter, one number and be 8 characters long at least",
         });
         return;
       }
@@ -81,12 +79,6 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-// router.get("/login", (req, res, next) => {
-//   res.render("login");
-// });
-// router.post("/login", (req, res, next) => {
-//   const { userName, password } = req.body;
-//   console.log("asdjkbqwdjhbqwdjnqwjkdn");
 
 //   User.findOne({ userName: userName })
 //     .then((result) => {
@@ -150,11 +142,6 @@ router.post("/login", (req, res, next) => {
     });
 });
 
-// router.get("/myaccount", (req, res, next) => {
-//   let user = req.session.user?
-//   res.render("myaccount", {user: user});
-// });
-
 /* GET createRecommendation */
 router.get("/create", (req, res, next) => {
   let user = req.session.user?._id
@@ -216,11 +203,33 @@ router.get("/myaccount", (req, res, next) => {
 //         cloudinary.uploader.destroy(deletedrecommendation.publicId)
 //       }
 //       res.redirect("/")
+
+// // Edit Cards
+// router.get("/created/:id/edit-create", async (req, res, next) => {
+//   const { link, title, description, tags, category, imgPath } = req.body;
+
+//   Recommendation.findById(req.params.id, {
+//     link,
+//     title,
+//     description,
+//     tags,
+//     category,
+//     imgPath,
+//   })
+//     .then(() => {
+//       // Redirect to card details route
+//       res.redirect(`/created/:id/edit-created/${req.params.id}`);
 //     })
-//     .catch(err => {
-//       next(err)
-//     })
-// })
+//     .catch((err) => next(err));
+// });
+// Delete cards
+router.get("/created/:id/delete", (req, res, next) => {
+  Recommendation.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/myaccount");
+    })
+    .catch((err) => next(err));
+});
 
 
 

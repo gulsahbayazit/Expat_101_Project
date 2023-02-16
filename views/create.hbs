@@ -1,27 +1,28 @@
 
 {{> navpartial this}} 
 <br>
-<div class="container w-70">
-    <div class="row ">
+<div class="container w-70 create">
+    <div class="row align-items-center ">
         <div class="col image-container d-flex flex-column justify-content-center align-items-end">
                 {{!-- <div class="col-sm-2 imgUp"> --}}
-             <div class="d-flex flex-column align-items-start">
-                 <div class="imagePreview"></div><br>
+             {{!-- <div class="d-flex flex-column align-items-start"> --}}
+                 {{!-- <div class="imagePreview"></div><br> --}}
+                 <img class="container-fluid create-img" src="/images/advice.jpg" alt="">
                 {{!-- <label class="btn blue-btn " >
                 Upload <input type="file" class="uploadFile img" value="Upload Photo" style="width:0px; height: 0px; ">
                                 </label> --}}
-             </div>
+             {{!-- </div> --}}
                
                 {{!-- </div><!-- col-2 --> --}}
         </div>
                 <div class="col text-right">
                     <div>
                         <div class="text-center">
-                            <h3 class="fw-bold ">Create Tricks and Tips</h3>
+                            <h2 class="fw-bold ">Create Tricks and Tips</h2>
                         </div>
                             <br>
             {{!-- <p class="fw-bold text-center"> <em> Please complete all required fields.</em></p> --}}
-                    <form class="row g-3 " action="create" method="POST" enctype="multipart/form-data">
+                    <form class="row g-3 " action="/create" method="POST" enctype="multipart/form-data">
                         <div class="col-12" >
                             <label for="title" class="form-label">Title</label>
                             <input type="text" class="form-control" name="title" value="" required>
@@ -67,5 +68,5 @@
                
     </div>
 </div>    
-  
+ 
 {{> footerpartial}} 
