@@ -33,13 +33,18 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     cookie: { maxAge: 1000 * 60 * 60 * 24 },
-    resave: true,
+    resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
     }),
   })
 );
+
+// app.use(function (req, res, next) {
+//   res.locals.session = req.session.user?;
+//   next();
+// });
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");

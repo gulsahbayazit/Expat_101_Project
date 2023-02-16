@@ -1,5 +1,5 @@
 
-{{> navpartial}} 
+{{> navpartial this}} 
 <br>
 <div class="container w-70">
     <div class="row ">
@@ -21,18 +21,18 @@
                         </div>
                             <br>
             {{!-- <p class="fw-bold text-center"> <em> Please complete all required fields.</em></p> --}}
-                    <form class="row g-3 " action="/recommendation/create" method="POST" enctype="multipart/form-data">
+                    <form class="row g-3 " action="create" method="POST" enctype="multipart/form-data">
                         <div class="col-12" >
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" name="title" value="title" required>
+                            <input type="text" class="form-control" name="title" value="" required>
                         </div>
                         <div class="col-12" >
                             <label for="link" class="form-label">Link</label>
-                            <input type="text" class="form-control" name="link" value="link" required>
+                            <input type="text" class="form-control" name="link" value="" required>
                         </div>
                         <div class="col-12">
                             <label for="tags" class="form-label">Tags </label>
-                            <input type="text"  class="form-control" name="tags" value="tags">
+                            <input type="text"  class="form-control" name="tags" value="">
                         </div>
                         <div class="col-12" >
                             <label for="image" class="form-label">Upload image</label>

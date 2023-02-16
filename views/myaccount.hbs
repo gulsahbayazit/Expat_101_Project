@@ -1,19 +1,13 @@
-{{> navpartial}} 
+{{> navpartial this}} 
 
-</section>
-<div class="container">
-  <div class="row">
-{{#each accomodations}}
-{{> cardspartial this}}
-{{/each}}
-</div>
-</div>
-<br>
+
+
 <div class="text-center">
    <div>
     <img class="profil-img rounded-circle shadow-4-strong" src="/images/human-profile-iconn.png">
-    <h5>{{this.userName}}</h5>
-    <p>{{this.occupation}}</p>
+    <h5>{{user.userName}}</h5>
+    <p>{{user.occupation}}</p>
+
   </div>
     <div>
         <a href="/create"> 
@@ -21,9 +15,24 @@
         </a>
     </div>
 </div>
+<br>
+
 
 {{!-- user could upload image --}}
         
-
+<div class="container">
+  <div class="row">
+{{#each accomodations}}
+{{> cardspartial this}}
+{{/each}}
+{{#each courses}}
+{{> cardspartial this}}
+{{/each}}
+{{#each socialLife}}
+{{> cardspartial this}}
+{{/each}}
+</div>
+</div>
+<br>
 
 {{> footerpartial}} 

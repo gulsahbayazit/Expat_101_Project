@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const Courses = require("../models/Recommendation");
+const Recommendation = require("../models/Recommendation");
+
 
 router.get("/courses", (req, res, next) => {
-  res.render("courses");
-});
-router.get("/courses", (req, res, next) => {
-  Recommendation.find({ category: "courses" }).then((courses) => {
-    res.render("courses", { courses: courses });
+  let user = req.session.user?._id
+  Recommendation.find({ category: "courses" })
+  .then((courses) => {
+    res.render("courses", { courses: courses,user: user});
   });
 });
 module.exports = router;

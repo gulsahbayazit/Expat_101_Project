@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const SocialLife = require("../models/Recommendation");
+const Recommendation = require("../models/Recommendation");
 
-router.get("/sociallife", (req, res, next) => {
-  res.render("socialLife");
-});
 router.get("/socialLife", (req, res, next) => {
-  Recommendation.find({ category: "events" }).then((accomodations) => {
-    res.render("socialLife", { socialLife: socialLife });
+  let user = req.session.user?._id
+
+  Recommendation.find({ category: "events" })
+    .then((socialLife) => {
+    res.render("socialLife", { events: socialLife, user: user});
   });
 });
 
