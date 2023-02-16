@@ -42,11 +42,38 @@ p {
   background-color: #77f3d4;
   border-color: #77f3d4;
 }
+.btn-secondary {
+  background-color: #d4d4d4;
+  border-color: #d4d4d4;
+}
+.btn-secondary a {
+  color: rgb(104, 104, 104);
+}
+
+.btn-secondary:hover {
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+}
 .btn a {
   color: black;
   text-decoration: none;
 }
+/* Cards */
+.card {
+  aspect-ratio: 2/3; /* Set the width-to-height ratio to 1.5:1 */
+}
 
+.gap-3 {
+  --bs-gutter-x: 3rem;
+  --bs-gutter-y: 3rem;
+}
+.card-img-top {
+  width: 18rem;
+  height: 16rem;
+}
+.card-footer {
+  background-color: white;
+}
 /* Recommendation */
 .tips-img {
   height: 50%;
@@ -94,8 +121,21 @@ p {
   background-color: #82efef;
   border-color: #82efef;
 }
-
+/* Create */
+.create {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+.create-img {
+  border-radius: 4rem;
+}
 /* Footer */
+
+.social-media {
+  width: 2rem;
+  height: auto;
+  padding-bottom: 1rem;
+}
 .bg-footer {
   background-color: rgb(187, 249, 249);
 }
@@ -109,8 +149,11 @@ p {
   border-color: #77f3d4;
 }
 
-.profil-img {
-  width: 10%;
+.myaccount-img {
+  height: 40%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 70%;
 }
 
 .imagePreview {
@@ -132,4 +175,8 @@ p {
 } */
 .list-unstyled {
   width: 10vw;
+}
+
+footer {
+  margin-top: 5rem;
 }
