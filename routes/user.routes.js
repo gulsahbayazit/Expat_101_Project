@@ -79,32 +79,6 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-
-//   User.findOne({ userName: userName })
-//     .then((result) => {
-//       if (result) {
-//         let isMatching = bcrypt.compareSync(password, result.password);
-//         if (isMatching) {
-//           req.session.user? = result;
-//           res.redirect("/myaccount");
-//         } else {
-//           res.render("login", {
-//             message: "Hey hey! Seems like your forgot your password.",
-//           });
-//         }
-//       } else {
-//         res.render("login", {
-//           message: "Hey hey! Seems like your forgot your password.",
-//         });
-//       }
-//     })
-//     .catch((err) => {
-//       next(err);
-//     });
-// });
-/* GET myAccount */
-
-
 router.get("/login", (req, res, next) => {
   res.render("login");
 });
@@ -144,52 +118,52 @@ router.post("/login", (req, res, next) => {
 
 /* GET createRecommendation */
 router.get("/create", (req, res, next) => {
-  let user = req.session.user?._id
-  res.render("create", {user: user});
+  let user = req.session.user?._id;
+  res.render("create", { user: user });
 });
 
-router.post(
-  "/create",
-  uploader.single("image"),
-  (req, res, next) => {
-    console.log(req.file);
-    // let imgPath;
-    // if (req.file.path === undefined) {
-    //   imgpath =
-    //     "https://www.nccer.org/images/default-source/icons/default-event-thumb.jpg?sfvrsn=2ceb314f_2";
-    // } else {
-    //   imgPath = req.file.path;
-    // }
-    const { title, description, tags, category, link } = req.body;
-    const imgPath = req.file.path;
-    console.log(req.body);
+router.post("/create", uploader.single("image"), (req, res, next) => {
+  console.log(req.file);
+  const { title, description, tags, category, link } = req.body;
+  const imgPath = req.file.path;
+  console.log(req.body);
 
-    Recommendation.create({
-      title,
-      link,
-      tags,
-      category,
-      description,
-      imgPath,
-      user: req.session.user?._id,
+  Recommendation.create({
+    title,
+    link,
+    tags,
+    category,
+    description,
+    imgPath,
+    user: req.session.user._id,
+  })
+    .then((createdRecommendation) => {
+      console.log(createdRecommendation);
+      res.redirect("/myaccount");
     })
-      .then((createdRecommendation) => {
-        console.log(createdRecommendation);
-        res.redirect("/myaccount");
-      })
-      .catch((err) => {
-        next(err);
-      });
-  }
-);
+    .catch((err) => {
+      next(err);
+    });
+});
 
 router.get("/myaccount", (req, res, next) => {
-  let user = req.session.user
-  Recommendation.find({ category: "accomodation", user: req.session.user?._id})
+  let user = req.session.user;
+  Recommendation.find({ category: "accomodation", user: req.session.user?._id })
     .then((accomodations) => {
-      Recommendation.find({ category: "courses", user: req.session.user?._id }).then((courses) => {
-        Recommendation.find({ category: "events", user: req.session.user?._id }).then((socialLife) => {
-          res.render("myaccount", { accomodations, courses, socialLife, user: user });
+      Recommendation.find({
+        category: "courses",
+        user: req.session.user?._id,
+      }).then((courses) => {
+        Recommendation.find({
+          category: "events",
+          user: req.session.user?._id,
+        }).then((socialLife) => {
+          res.render("myaccount", {
+            accomodations,
+            courses,
+            socialLife,
+            user: user,
+          });
         });
       });
     })
@@ -223,14 +197,12 @@ router.get("/myaccount", (req, res, next) => {
 //     .catch((err) => next(err));
 // });
 // Delete cards
-router.get("/created/:id/delete", (req, res, next) => {
-  Recommendation.findByIdAndRemove(req.params.id)
-    .then(() => {
-      res.redirect("/myaccount");
-    })
-    .catch((err) => next(err));
-});
-
-
+// router.get("/created/:id/delete", (req, res, next) => {
+//   Recommendation.findByIdAndRemove(req.params.id)
+//     .then(() => {
+//       res.redirect("/myaccount");
+//     })
+//     .catch((err) => next(err));
+// });
 
 module.exports = router;
