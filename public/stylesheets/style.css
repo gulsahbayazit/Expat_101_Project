@@ -68,7 +68,7 @@ p {
   --bs-gutter-y: 3rem;
 }
 .card-img-top {
-  width: 18rem;
+  width: 22rem;
   height: 16rem;
 }
 .card-footer {
@@ -150,7 +150,7 @@ p {
 }
 
 .myaccount-img {
-  height: 40%;
+  height: 50%;
   width: 100%;
   object-fit: cover;
   object-position: 50% 70%;

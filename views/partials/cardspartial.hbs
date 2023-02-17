@@ -1,5 +1,5 @@
 <div class="col-md-4 d-flex flex-wrap gap-3 align-items-stretch">
-  <div class="card shadow p-3" style="width: 20rem;">
+  <div class="card shadow p-3" style="width: 24rem;">
     <img
       class="card-img-top img-fluis"
       src="{{imgPath}}"
@@ -13,7 +13,7 @@
       <p class="card-text">{{description}}</p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">#{{tags}}</li>
+      <li class="list-group-item">{{tags}}</li>
       <li class="list-group-item">Category: {{category}}</li>
     </ul>
 
@@ -22,10 +22,10 @@
       <button type="submit" class="btn btn-light">
         <a href="{{this.link}}">View website</a></button>
 
-      {{#if delete}}
-        <button class="btn btn-secondary">
-          <a href="/created/{{_id}}/delete">Delete</a></button>
-      {{/if}}
+      {{!-- {{#if delete}}
+
+        <a href="/created/{{_id}}/delete">Delete</a>
+      {{/if}} --}}
 
     </div>
   </div>
