@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const Recommendation = require("../models/Recommendation");
 const User = require("../models/User");
 const { uploader, cloudinary } = require("../config/cloudinary");
+const { isLoggedIn } = require("../middleware/route-guard");
 
 /* GET home page */
 router.get("/signup", (req, res, next) => {
@@ -20,16 +21,6 @@ router.post("/signup", (req, res, next) => {
     email,
     password,
   } = req.body;
-
-  // let profileBody = {
-  //   userName: userName,
-  //   firstName: firstName,
-  //   lastName: lastName,
-  //   country: country,
-  //   occupation: occupation,
-  //   email: email,
-  //   password: password,
-  // }
 
   if (userName === "") {
     res.render("signup.hbs", { message: "Username cannot be empty" });
@@ -169,40 +160,17 @@ router.get("/myaccount", (req, res, next) => {
     })
     .catch((error) => next(error));
 });
-// router.get("/recommendation/delete/:id", (req, res, next) => {
-//   Recommendation.findByIdAndDelete(req.params.id)
-//     .then(deletedrecommendation => {
-//       if (deletedrecommendation.imgPath) {
-//         // delete the image on cloudinary
-//         cloudinary.uploader.destroy(deletedrecommendation.publicId)
-//       }
-//       res.redirect("/")
-
-// // Edit Cards
-// router.get("/created/:id/edit-create", async (req, res, next) => {
-//   const { link, title, description, tags, category, imgPath } = req.body;
-
-//   Recommendation.findById(req.params.id, {
-//     link,
-//     title,
-//     description,
-//     tags,
-//     category,
-//     imgPath,
-//   })
-//     .then(() => {
-//       // Redirect to card details route
-//       res.redirect(`/created/:id/edit-created/${req.params.id}`);
-//     })
-//     .catch((err) => next(err));
-// });
-// Delete cards
-// router.get("/created/:id/delete", (req, res, next) => {
-//   Recommendation.findByIdAndRemove(req.params.id)
-//     .then(() => {
-//       res.redirect("/myaccount");
-//     })
-//     .catch((err) => next(err));
-// });
+router.get("/delete/:id", isLoggedIn, (req, res, next) => {
+  const id = req.params.id;
+  Recommendation.findByOneAndDelete(req.params.id)
+    .then((deletedrecommendation) => {
+      if (deletedrecommendation.imgPath) {
+        // delete the image on cloudinary
+        cloudinary.uploader.destroy(deletedrecommendation.publicId);
+      }
+      res.redirect("/myaccount");
+    })
+    .catch((err) => next(err));
+});
 
 module.exports = router;

@@ -19,18 +19,13 @@
           <input type="password" name="password" class="form-control"/>
         </div>
        
-            <divc class="col-12 d-grid gap-2">
+            <div class="col-12 d-grid gap-2">
                 <button type="submit" class="btn btn-light btn-width-1-1">Log in</button>
                 <a class="text-center" href="/signup">Create an account</a>
-                {{! <a href="/change-password">Change password</a> }}
             </div>
        
       </form>
   </div>
-
-  {{!-- {{#if message}}
-  <h3 class="error">{{message}}</h3>
-{{/if}} --}}
 {{#if message}}
   <p class="text-center">{{message}}</p>
 {{/if}}

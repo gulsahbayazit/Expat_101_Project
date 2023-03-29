@@ -46,11 +46,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-// app.use(function (req, res, next) {
-//   res.locals.session = req.session.user?;
-//   next();
-// });
-
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
